@@ -1,6 +1,6 @@
 // Requier and conncetion
 var mysql = require("mysql");
-var inquirer = require("inquirer");
+var inquirer = require('inquirer');
 
 
 var connection = mysql.createConnection({
@@ -30,33 +30,8 @@ connection.query("SELECT * FROM products", function(err,res){
 
 });
 
-var runSearch = function() {
-  inquirer.prompt({
-    name: "action",
-    type: "list",
-    message: "What would you like to do?",
-    choices: ["Find songs by artist", "Find all artists who appear more than once",
-      "Find data within a specific range", "Search for a specific song"]
-  }).then(function(answer) {
-
-    switch (answer.action) {
-      case "Find songs by artist":
-      	console.log(res[i].action);
-        artistSearch();
-        break;
-
-      case "Find all artists who appear more than once":
-        multiSearch();
-        break;
-
-      case "Find data within a specific range":
-        rangeSearch();
-        break;
-
-      case "Search for a specific song":
-        songSearch();
-        break;
-	}
-  });
-};
+  
+inquirer.prompt(["What item would you like?"]).then(function (answers) {
+    console.log("cool"); 
+});
 
